@@ -3,6 +3,7 @@
 * Set up your Postgres database by running, in order, each of the SQL scripts in `src/backend/sqlScripts`.
 * Update the configuration string in `src/backend/config.js` with the connection string for your local database.
 * Remember to install the dependencies by running `npm install` in your terminal.
+* Type `git update-index --assume-unchanged src/backend/config.js` in your terminal to prevent the config file from being pushed to git.
 
 # Run your code
 
