@@ -1,7 +1,7 @@
 import crypto from "crypto";
 import * as UserRepository from "../repositories/UserRepository";
 
-class User {
+class UserService {
     static hashString(toHash) {
         return crypto.createHash("sha512").update(toHash).digest("hex").toUpperCase();
     }
@@ -15,4 +15,4 @@ class User {
     }
 }
 
-export default User;
+export default UserService;

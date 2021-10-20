@@ -9,7 +9,7 @@ const app = express();
 
 app.disable("x-powered-by");
 app.use(urlencoded({ extended: false }));
-app.use(json());
+app.use(express.json());
 
 configurePassport();
 app.use(passport.initialize());
@@ -21,13 +21,13 @@ app.use("/", renderingRoutes);
 export default app;
 
 function configurePassport() {
-	const jwtOptions = {
-		jwtFromRequest: passportJwt.ExtractJwt.fromHeader("x-access-token"),
-		secretOrKey: config.secret,
-	};
-	passport.use(
-		new passportJwt.Strategy(jwtOptions, async (decodedJwt, _) => {
-			return await Users.isUserValid(decodedJwt.username, decodedJwt.passport);
-		})
-	);
+    const jwtOptions = {
+        jwtFromRequest: passportJwt.ExtractJwt.fromHeader("x-access-token"),
+        secretOrKey: config.secret,
+    };
+    passport.use(
+        new passportJwt.Strategy(jwtOptions, async (decodedJwt, _) => {
+            return await Users.isUserValid(decodedJwt.username, decodedJwt.passport);
+        })
+    );
 }
