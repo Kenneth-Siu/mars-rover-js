@@ -7,7 +7,7 @@ const router = express.Router();
 router.use("/quotations", QuotationsController);
 router.use("/login", LoginController);
 
-router.use((req, res) => {
+router.use((_, res) => {
     res.sendStatus(404);
 });
 
