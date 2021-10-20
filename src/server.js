@@ -8,9 +8,9 @@ const app = express();
 app.disable("x-powered-by");
 app.use(urlencoded({ extended: false }));
 app.use(json());
-
 app.use("/api", apiRoutes);
 app.use(express.static(process.env.RAZZLE_PUBLIC_DIR));
 app.use("/", renderingRoutes);
+
 
 export default app;

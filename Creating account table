@@ -1,0 +1,12 @@
+CREATE TABLE Account(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL
+);
+
+INSERT INTO Account (username, password)
+VALUES
+	('kenny', 'abadpassword');
+	
+ALTER TABLE account
+ADD administrator BOOLEAN;
