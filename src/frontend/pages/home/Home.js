@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <>
             <title>Mars Rover App</title>
-            <main className="home-page">
+            <main className="home-page page-container">
                 <h1>Mars Rover</h1>
                 <h2>Quotation of the day</h2>
                 <p className="quotation">{quotation?.text}</p>
