@@ -1,7 +1,7 @@
 import express from "express";
 import UserService from "../services/UserService";
 import jwt from "jsonwebtoken";
-import config from "../config";
+import { secret } from "../config";
 
 const router = express.Router();
 
@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
 });
 
 function createTokenForUser(username) {
-    return jwt.sign({ username: username }, config.secret);
+    return jwt.sign({ username: username }, secret);
 }
 
 export default router;
