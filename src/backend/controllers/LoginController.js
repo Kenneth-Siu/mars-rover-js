@@ -5,10 +5,10 @@ import config from "../config";
 
 const router = express.Router();
 
-router.get("/login", async (req, res) => {
+router.get("/", async (req, res) => {
     res.send("test");
 });
-router.post("/login", async (req, res) => {
+router.post("/", async (req, res) => {
     console.log(res);
     const body = res.body;
     const isValid = await UserService.isUserValid(body.username, body.password);
