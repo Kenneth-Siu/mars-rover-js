@@ -9,8 +9,7 @@ router.get("/", async (req, res) => {
     res.send("test");
 });
 router.post("/", async (req, res) => {
-    console.log(res);
-    const body = res.body;
+    const body = req.body;
     const isValid = await UserService.isUserValid(body.username, body.password);
     if (isValid) {
         res.send({
