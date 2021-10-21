@@ -17,5 +17,5 @@ export async function getQuotationOfTheDay() {
 }
 
 export async function accessAddToDatabase (text, attribution) {
-    QuotationsRepository.addToDatabase(text, attribution);
+    await QuotationsRepository.addToDatabase(text, attribution);
 }
