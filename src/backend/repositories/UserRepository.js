@@ -4,6 +4,7 @@ const databaseName = "users";
 
 export async function getFromName(name) {
     const result = await database.any("SELECT * FROM $1 WHERE name = $2", [databaseName, name]);
+    console.log(result);
     if (result.length > 0) {
         return result[0];
     }
