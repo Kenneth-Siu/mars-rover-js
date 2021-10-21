@@ -7,7 +7,6 @@ class UserService {
     }
     static async isUserValid(username, password) {
         const name = await UserRepository.getFromName(username);
-        console.log(name);
         if (name !== undefined) {
             const passhash = this.hashString(password);
             return passhash === name.passhash;
