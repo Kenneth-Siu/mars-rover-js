@@ -4,11 +4,11 @@ CREATE TABLE Users (
 	preferred_name varchar(50),
 	passhash varchar(512),
 	email varchar(100),
-	permission_id int,
-    FOREIGN KEY (permission_id) REFERENCES Permissions(id)
+	role_id int,
+    FOREIGN KEY (role_id) REFERENCES Roles(id)
 );
 
-CREATE TABLE Permissions (
+CREATE TABLE Roles (
 	id SERIAL PRIMARY KEY,
 	name varchar(25)
 );
