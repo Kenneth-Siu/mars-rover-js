@@ -1,7 +1,9 @@
 import database from "./database";
 
+const databaseName = "quotations";
+
 export async function get(id) {
-    const result = database.any("SELECT * FROM quotations WHERE id = $1", [id]);
+    const result = await database.any("SELECT * FROM $1 WHERE id = $2", [databaseName, id]);
     if (result.length > 0) {
         return result[0];
     }
@@ -9,5 +11,5 @@ export async function get(id) {
 }
 
 export async function getAll() {
-    return await database.any("SELECT * FROM quotations");
+    return await database.any("SELECT * FROM $1", [databaseName]);
 }

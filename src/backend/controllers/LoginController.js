@@ -1,13 +1,17 @@
 import express from "express";
 import UserService from "../services/UserService";
 import jwt from "jsonwebtoken";
-import config from "./config";
+import config from "../config";
 
-const router = express.router();
+const router = express.Router();
 
+router.get("/login", async (req, res) => {
+    res.send("test");
+});
 router.post("/login", async (req, res) => {
-    const body = res.json();
-    const isValid = UserService.isUserValid(body.username, body.password);
+    console.log(res);
+    const body = res.body;
+    const isValid = await UserService.isUserValid(body.username, body.password);
     if (isValid) {
         res.send({
             message: `Valid credentials. Welcome, ${body.username}`,
