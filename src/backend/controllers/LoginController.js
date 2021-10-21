@@ -10,6 +10,7 @@ router.get("/", async (req, res) => {
 });
 router.post("/", async (req, res) => {
     const body = req.body;
+    console.log(req.body);
     const isValid = await UserService.isUserValid(body.username, body.password);
     if (isValid) {
         res.send({
