@@ -5,8 +5,13 @@ const router = express.Router();
 
 router.use("/quotations", QuotationsController);
 router.use("/photos",PhotosController)
+import LoginController from "./controllers/LoginController.js";
 
-router.use((req, res) => {
+const router = express.Router();
+
+router.use("/quotations", QuotationsController);
+router.use("/login", LoginController);
+router.use((_, res) => {
     res.sendStatus(404);
 });
 
