@@ -35,7 +35,7 @@ export default function Home() {
         </p>
         <h2> What was Spirit?</h2>
         <div className="SpiritPic">
-          <img src="\Spirit.jpg" alt="Spirit picture" />
+          <img src="\Spirit.jpg" alt="Spirit picture"/>
         </div>
         <p>
           NASA's Spirit rover—and it's twin Opportunity—studied the history of
