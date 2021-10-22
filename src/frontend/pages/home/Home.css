@@ -19,6 +19,23 @@
     margin-bottom: 0.5rem;
 }
 
-.home-page .attribution {
-    font-style: italic;
+.CuriosityPic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.OpportunityPic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.SpiritPic{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
