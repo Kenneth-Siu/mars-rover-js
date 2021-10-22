@@ -2,7 +2,7 @@
 
 -   Set up your Postgres database by running, in order, each of the SQL scripts in `src/backend/sqlScripts`.
 -   Remember to install the dependencies by running `npm install` in your terminal.
--   Make a local copy of `src/_template_config.js` and name the copy `config.js`. Update the copy's contents with your connection string, your NASA API key, and a secret for JWT encryption. The secret should be a long high-entropy string.
+-   Make a local copy of `src/backend/_template_config.js` and name the copy `config.js`. Update the copy's contents with your connection string, your NASA API key, and a secret for JWT encryption. The secret should be a long high-entropy string.
 
 # Run your code
 

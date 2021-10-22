@@ -1,7 +1,7 @@
 import express from "express";
 import UserService from "../services/UserService";
 import jwt from "jsonwebtoken";
-import { secret } from "../../config";
+import { secret } from "../config";
 
 const router = express.Router();
 

@@ -5,7 +5,7 @@ import renderingRoutes from "./backend/renderingRoutes.js";
 import passport from "passport";
 import passportJwt from "passport-jwt";
 import UserService from "./backend/services/UserService.js";
-import { secret } from "./config";
+import { secret } from "./backend/config";
 const app = express();
 
 app.disable("x-powered-by");
