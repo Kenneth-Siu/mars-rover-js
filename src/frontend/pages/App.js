@@ -5,8 +5,6 @@ import "./cssreset.css";
 import "./App.css";
 import Photos from "./Photos/Photos";
 
-
-
 export default function App() {
     return (
         <Switch>
