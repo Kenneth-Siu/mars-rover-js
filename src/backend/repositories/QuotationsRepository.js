@@ -13,7 +13,7 @@ export async function getAll() {
 }
 
 export async function addToDatabase(text, attribution) {
-    await database.any("INSERT INTO quotations (text, attribution) VALUES ($1, $2);", [
+  await database.any("INSERT INTO quotations (text, attribution) VALUES ($1, $2);", [
     text,
     attribution,
   ]);
