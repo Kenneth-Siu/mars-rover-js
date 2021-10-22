@@ -1,5 +1,8 @@
 import express from "express";
 import * as QuotationsService from "../services/QuotationsService.js";
+import passport from "passport";
+import UserService from "../services/UserService";
+import * as UserRepository from "../repositories/UserRepository";
 
 const router = express.Router();
 
@@ -24,6 +27,21 @@ router.get("/:quotationId", async (req, res) => {
             console.error(err);
             res.sendStatus(500);
         }
+    }
+});
+
+router.post("/", passport.authenticate("jwt", { session: false }), async (req, res) => {
+    if (UserService.isUserAnAdmin(UserRepository.getFromName(req.user))) {
+        const body = req.body;
+        try {
+            await QuotationsService.accessAddToDatabase(body.text, body.attribution);
+            res.sendStatus(201);
+        } catch (err) {
+            console.error(err);
+            res.sendStatus(500);
+        }
+    } else {
+        res.sendStatus(403);
     }
 });
 

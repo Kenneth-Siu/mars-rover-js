@@ -13,6 +13,11 @@ class UserService {
         }
         return false;
     }
+    static async isUserAnAdmin (account) {
+        if (account?.role_id === 2) {
+            return true;
+        } else return false;
+    }
 }
 
 export default UserService;
