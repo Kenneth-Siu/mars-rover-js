@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as QuotationsApi from "../../api/QuotationsApi";
+import Header from '../components/Header';
 import "./Home.css";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
     return (
         <>
             <title>Mars Rover App</title>
+            <Header />
             <main className="home-page page-container">
                 <h1>Mars Rover</h1>
                 <h2>Quotation of the day</h2>

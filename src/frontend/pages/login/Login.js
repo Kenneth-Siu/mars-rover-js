@@ -1,5 +1,6 @@
 import { useState } from "react";
 import LoginForm from "../components/LoginForm";
+import Header from "../components/Header"
 import { setToken, getToken } from "../../../backend/jwtToken.js";
 import "./Login.css";
 
@@ -44,6 +45,7 @@ const Login = (props) => {
     return (
         <>
             <title>Mars Rover App - Login</title>
+            <Header />
             <main className="login-page page-container">
                 <div className="login-page-container">
                     <div className="login-page-form">
