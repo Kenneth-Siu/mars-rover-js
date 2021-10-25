@@ -54,7 +54,6 @@ export default function Home() {
       </main>
     </>
   );
-
   async function getQuotationOfTheDay() {
     try {
       const response = await QuotationsApi.getQuotationOfTheDay();

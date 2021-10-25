@@ -7,7 +7,6 @@ router.use("/quotations", QuotationsController);
 router.use("/photos",PhotosController)
 import LoginController from "./controllers/LoginController.js";
 
-const router = express.Router();
 
 router.use("/quotations", QuotationsController);
 router.use("/login", LoginController);
