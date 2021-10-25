@@ -2,8 +2,10 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './home/Home';
 import Login from './login/Login';
-import './cssreset.css';
-import './App.css';
+import './css/cssreset.css';
+import './css/App.css';
+import './css/Utilities.css';
+import './css/Header.css';
 
 export default function App() {
   return (
