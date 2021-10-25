@@ -5,11 +5,12 @@
 	--font-normal: 400;
 	--font-semi-bold: 600;
 	--font-bold: 700;
-	--font-primary-color: #212121;
-	--font-secondary-color: #fff;
-	--font-accent-color: #5e3d9f;
-	--background-color: #dcdcdc;
-	--page-max-width: 1200px;
+	--primary-color: #212121;
+	--secondary-color: #fff;
+	--accent-color: #14103d;
+	--grey-color: #dcdcdc;
+	--max-width-normal: 1200px;
+	--max-width-wide: 2200px;
 }
 
 html {
@@ -22,7 +23,12 @@ body {
 	flex-direction: column;
 	position: relative;
 	min-height: 100vh;
-	color: var(--font-primary-color);
+	color: var(--primary-color);
 	font-weight: var(--font-normal);
-	background-color: var(--background-color);
+	background-color: var(--grey-color);
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
 }
