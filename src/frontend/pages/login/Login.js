@@ -1,10 +1,11 @@
 import { useState } from "react";
 import LoginForm from "../components/LoginForm";
-import { setToken, getToken } from '../../../backend/jwtToken.js';
+import { setToken, getToken } from "../../../backend/jwtToken.js";
+import "./Login.css";
 
 const Login = (props) => {
-    const [user, setUser] = useState({ username: "", password: "" });
-    const [error, setError] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+    const [isActive, setActive] = useState(false);
 
     const handleLogin = (details) => {
         const loginDetails = {
@@ -26,9 +27,13 @@ const Login = (props) => {
                         props.history.push("/");
                     });
                 } else if (response.status === 401) {
-                    throw new Error('Incorrect login details');
+                    setActive(!setActive())
+                    setErrorMessage("Incorrect login details, please try again.");
+                    throw new Error();
                 } else {
-                    throw new Error('Could not login');
+                    setActive(!setActive())
+                    setErrorMessage("An error occurred, please try again.");
+                    throw new Error();
                 }
             })
             .catch((err) => {
@@ -40,7 +45,18 @@ const Login = (props) => {
         <>
             <title>Mars Rover App - Login</title>
             <main className="login-page page-container">
-                <LoginForm login={handleLogin} error={error} />
+                <div className="login-page-container">
+                    <div className="login-page-form">
+                        <LoginForm
+                            login={handleLogin}
+                            errorMessage={errorMessage}
+                            isActive={isActive}
+                        />
+                    </div>
+                    <div className="login-page-hero">
+                        
+                    </div>
+                </div>
             </main>
         </>
     );
