@@ -25,15 +25,10 @@ function Header() {
                     <div className="column--three">
                         <ul>
                             <li className="header-link">
-                                <a  href="/login">
-                                    Login
-                                </a>
+                                <a  href="/login">Login</a>
                             </li>
                             <li>
-                                <a
-                                    className="btn btn-cta--emphasis"
-                                    href="/register"
-                                >
+                                <a className="btn btn-cta--emphasis" href="/register">
                                     Get Started
                                     <i class="fas fa-user-astronaut"></i>
                                 </a>
