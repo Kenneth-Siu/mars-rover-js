@@ -4,7 +4,6 @@ import apiRoutes from "./backend/apiRoutes.js";
 import renderingRoutes from "./backend/renderingRoutes.js";
 import passport from "passport";
 import passportJwt from "passport-jwt";
-import UserService from "./backend/services/UserService.js";
 import * as UserRepository from "./backend/repositories/UserRepository.js";
 import { secret } from "./backend/config";
 const app = express();
@@ -30,7 +29,6 @@ function configurePassport() {
             const user =  await UserRepository.getFromName(
                 decodedJwt.username
             );
-            console.log(user);
             if (user !== undefined) {
                 done(null, user);
                 } else {
