@@ -46,16 +46,16 @@ const Login = (props) => {
         <>
             <title>Mars Rover App - Login</title>
             <Header />
-            <main className="login-page page-container">
-                <div className="login-page-container">
-                    <div className="login-page-form">
+            <main className="page-container--normal">
+                <div className="login-form">
+                    <div>
                         <LoginForm
                             login={handleLogin}
                             errorMessage={errorMessage}
                             isActive={isActive}
                         />
                     </div>
-                    <div className="login-page-hero">
+                    <div className="login-hero-section">
                         
                     </div>
                 </div>
