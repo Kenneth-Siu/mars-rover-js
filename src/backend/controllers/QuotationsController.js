@@ -34,7 +34,7 @@ router.post("/", passport.authenticate("jwt", { session: false }), async (req, r
     if (UserService.isUserAnAdmin(UserRepository.getFromName(req.user))) {
         const body = req.body;
         try {
-            await QuotationsService.accessAddToDatabase(body.text, body.attribution);
+            await QuotationsService.AddToDatabase(body.text, body.attribution);
             res.sendStatus(201);
         } catch (err) {
             console.error(err);
