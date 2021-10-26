@@ -26,14 +26,12 @@ function configurePassport() {
     };
     passport.use(
         new passportJwt.Strategy(jwtOptions, async (decodedJwt, done) => {
-            const user =  await UserRepository.getFromName(
-                decodedJwt.username
-            );
+            const user = await UserRepository.getFromName(decodedJwt.username);
             if (user !== undefined) {
                 done(null, user);
-                } else {
+            } else {
                 done(null, false);
-                }
+            }
         })
     );
 }
