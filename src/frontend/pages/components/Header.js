@@ -30,7 +30,7 @@ function Header() {
                             <li>
                                 <a className="btn btn-cta--emphasis" href="/register">
                                     Get Started
-                                    <i class="fas fa-user-astronaut"></i>
+                                    <i className="fas fa-user-astronaut"></i>
                                 </a>
                             </li>
                         </ul>
