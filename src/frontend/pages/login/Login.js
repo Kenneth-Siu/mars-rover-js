@@ -1,8 +1,8 @@
 import { useState } from "react";
 import LoginForm from "../components/LoginForm";
-import Header from "../components/Header"
+import Header from "../components/Header";
 import { setToken, getToken } from "../../../backend/jwtToken.js";
-import { makeFetch } from '../../api/Api';
+import { makeFetch } from "../../api/Api";
 import "./Login.css";
 
 const Login = (props) => {
@@ -17,22 +17,24 @@ const Login = (props) => {
 
         async function send(url, method, body, expectJsonResponse) {
             try {
-                const response = await makeFetch(url, method, body, expectJsonResponse);
-                console.log(response);
-                console.log(setToken(response.token));
+                const response = await makeFetch(
+                    url,
+                    method,
+                    body,
+                    expectJsonResponse
+                );
                 props.history.push("/");
             } catch (errorStatus) {
-
                 if (errorStatus === 401) {
-                    setActive(!setActive())
-                    setErrorMessage("Please enter a valid username or password.");
+                    setActive(!setActive());
+                    setErrorMessage(
+                        "Please enter a valid username or password."
+                    );
                 }
-
-                console.log(errorStatus);
             }
-    }
+        }
 
-    send("/api/login", "POST", details, true);
+        send("/api/login", "POST", details, true);
     };
 
     return (
@@ -48,9 +50,7 @@ const Login = (props) => {
                             isActive={isActive}
                         />
                     </div>
-                    <div className="login-hero-section">
-                        
-                    </div>
+                    <div className="login-hero-section"></div>
                 </div>
             </main>
         </>
