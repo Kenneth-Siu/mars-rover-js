@@ -23,6 +23,7 @@ const Login = (props) => {
                     body,
                     expectJsonResponse
                 );
+                setToken(response.token);
                 props.history.push("/");
             } catch (errorStatus) {
                 if (errorStatus === 401) {
