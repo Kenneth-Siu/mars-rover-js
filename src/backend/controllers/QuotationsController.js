@@ -27,4 +27,15 @@ router.get("/:quotationId", async (req, res) => {
     }
 });
 
+router.post("/", async (req, res) => {
+    const body = req.body;
+    try {
+        await QuotationsService.accessAddToDatabase(body.text, body.attribution);
+        res.sendStatus(201);
+    } catch (err) {
+        console.error(err);
+        res.sendStatus(500);
+    }
+});
+
 export default router;

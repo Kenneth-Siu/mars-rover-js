@@ -15,3 +15,7 @@ export async function getQuotationOfTheDay() {
     const todaysId = today % quotations.length;
     return quotations[todaysId];
 }
+
+export async function addToDatabase (text, attribution) {
+    await QuotationsRepository.addToDatabase(text, attribution);
+}

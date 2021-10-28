@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as QuotationsApi from "../../api/QuotationsApi";
 import Header from '../components/Header';
 import "./Home.css";
+import NavigationBar from "../../Components/NavigationBar.js";
 
 export default function Home() {
     const [quotation, setQuotation] = useState();
