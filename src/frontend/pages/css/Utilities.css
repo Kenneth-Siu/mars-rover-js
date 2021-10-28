@@ -1,0 +1,43 @@
+.page-container--normal {
+	max-width: var(--max-width-normal);
+	width: 80%;
+	margin: 0 auto;
+}
+
+.page-container--wide {
+	max-width: var(--max-width-wide);
+	width: 95%;
+	margin: 0 auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 4px;
+}
+
+.btn-cta--emphasis {
+    color: var(--secondary-color);
+    background-color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+
+.btn-cta--emphasis:focus, 
+.btn-cta--emphasis:hover {
+    color: var(--accent-color);
+    background-color: var(--secondary-color);
+}
+
+.btn-cta--light {
+    color: var(--accent-color);
+    background-color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-cta--light:focus, 
+.btn-cta--light:hover {
+    text-decoration: underline;
+}
