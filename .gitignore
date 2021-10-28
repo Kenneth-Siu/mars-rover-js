@@ -12,4 +12,3 @@ cache
 .env.test.local
 .env.production.local
 src/backend/config.js
-src/backend/JWTToken.js
