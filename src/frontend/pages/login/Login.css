@@ -1,7 +1,6 @@
 .login-form {
     display: flex;
     margin-top: 50px;
-    /* min-height: 500px; */
     background-color: var(--secondary-color);
     border-radius: 4px;
     overflow: hidden;
