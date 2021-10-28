@@ -2,6 +2,7 @@ import { useState } from "react";
 import LoginForm from "../components/LoginForm";
 import Header from "../components/Header"
 import { setToken, getToken } from "../../../backend/jwtToken.js";
+import { makeFetch } from '../../api/Api';
 import "./Login.css";
 
 const Login = (props) => {
@@ -14,32 +15,24 @@ const Login = (props) => {
             password: details.password,
         };
 
-        fetch("/api/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(loginDetails),
-        })
-            .then((response) => {
-                if (response.status === 200) {
-                    response.json().then((json) => {
-                        setToken(json.token);
-                        props.history.push("/");
-                    });
-                } else if (response.status === 401) {
+        async function send(url, method, body, expectJsonResponse) {
+            try {
+                const response = await makeFetch(url, method, body, expectJsonResponse);
+                console.log(response);
+                console.log(setToken(response.token));
+                props.history.push("/");
+            } catch (errorStatus) {
+
+                if (errorStatus === 401) {
                     setActive(!setActive())
-                    setErrorMessage("Incorrect login details, please try again.");
-                    throw new Error();
-                } else {
-                    setActive(!setActive())
-                    setErrorMessage("An error occurred, please try again.");
-                    throw new Error();
+                    setErrorMessage("Please enter a valid username or password.");
                 }
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+
+                console.log(errorStatus);
+            }
+    }
+
+    send("/api/login", "POST", details, true);
     };
 
     return (
