@@ -13,3 +13,10 @@ export async function get(id) {
 export async function getAll() {
     return await database.any(`SELECT * FROM ${databaseName}`);
 }
+
+export async function addToDatabase(text, attribution) {
+    await database.any(`INSERT INTO ${databaseName} (text, attribution) VALUES ($1, $2);`, [
+    text,
+    attribution,
+  ]);
+}

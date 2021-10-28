@@ -4,7 +4,7 @@ import apiRoutes from "./backend/apiRoutes.js";
 import renderingRoutes from "./backend/renderingRoutes.js";
 import passport from "passport";
 import passportJwt from "passport-jwt";
-import UserService from "./backend/services/UserService.js";
+import * as UserRepository from "./backend/repositories/UserRepository.js";
 import { secret } from "./backend/config";
 const app = express();
 
@@ -25,8 +25,13 @@ function configurePassport() {
         secretOrKey: secret,
     };
     passport.use(
-        new passportJwt.Strategy(jwtOptions, async (decodedJwt, _) => {
-            return await UserService.isUserValid(decodedJwt.username, decodedJwt.passport);
+        new passportJwt.Strategy(jwtOptions, async (decodedJwt, done) => {
+            const user = await UserRepository.getFromName(decodedJwt.username);
+            if (user !== undefined) {
+                done(null, user);
+            } else {
+                done(null, false);
+            }
         })
     );
 }
