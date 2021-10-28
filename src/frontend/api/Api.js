@@ -18,7 +18,7 @@ export async function makeFetch(url, method, body, expectJsonResponse) {
     }
     const response = await fetch(url, options);
     if (!response.ok) {
-        throw "Response not ok";
+        throw response.status;
     }
     if (expectJsonResponse) {
         return await response.json();
